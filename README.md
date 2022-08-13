@@ -1,6 +1,6 @@
 # Smart-Watch-Sensor-Data
 
-Read and process to transform sensor smart watch data to the tidy format
+Read, merge, filter, process and sumarize smart watch sensor data according to the tidy format
 
 ***
 
