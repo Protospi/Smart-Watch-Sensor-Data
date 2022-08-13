@@ -10,7 +10,9 @@ The run_analysis script was writen to read data from .txt files, merge, transfor
 
 obs: The train data is to large to upload to github so the link of the data repository is:
 
-[](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
+(http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
+
+***
 
 ### Steps
 
@@ -24,6 +26,10 @@ obs: The train data is to large to upload to github so the link of the data repo
 
 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
+***
+
 ### Results
 
 The tidy_data.txt file is provided in the repo containing the summarization results from task 5.
+
+***
