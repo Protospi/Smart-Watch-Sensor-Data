@@ -32,4 +32,16 @@ obs: The train data is to large to upload to github so the link of the data repo
 
 The tidy_data.txt file is provided in the repo containing the summarization results from task 5.
 
+The final tidy data .txt file contains only 5 columns:
+
+ - 3 index columns for subject of the study, activity registered and type of metric retrieved
+
+ - 2 value columns contain the mean of the mean for the metrics and the of standard deviations for the metric
+ 
+ ***
+ 
+ ### Conclusion:
+ 
+ - This data wrangling pipeline could be considered tidy because it facilitates compare metrics user and activities using descriptive, analytical and modeling frameworks
+
 ***
