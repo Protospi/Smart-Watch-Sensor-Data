@@ -87,11 +87,28 @@ names(df2) <- str_replace_all(names(df2), pattern = "_$", "")
 # Final step
 df5 <- df2 %>%
   group_by(subject, activity) %>%
-  summarise_all(mean)
+  summarise_all(mean) %>% 
+  ungroup()
 
 # Inpect data
 dim(df5)
 str(df5)
+
+# Tidy means
+mean_columns <- str_detect(names(df5), "mean")
+df5_means <- cbind(df5[,c(1,2)], df5[, mean_columns])
+df5_mean_tidy <- pivot_longer(df5_means, cols = 3:55, names_to = "metrics", values_to = "mean_mean")
+df5_mean_tidy$metrics <- str_replace_all(df5_mean_tidy$metrics, "[_]*mean[_]*", "")
+
+# Tidy stds
+std_columns <- str_detect(names(df5), "std")
+df5_stds <- cbind(df5[,c(1,2)], df5[, std_columns])
+df5_std_tidy <- pivot_longer(df5_stds, cols = 3:35, names_to = "metrics", values_to = "std_mean")
+df5_std_tidy$metrics <- str_replace_all(df5_std_tidy$metrics, "[_]*std[_]*", "")
+
+# Join the data frames
+df_tidy <- df5_mean_tidy %>% 
+    left_join(df5_std_tidy, by = c("subject" = "subject", "activity" = "activity", "metrics" = "metrics"))
 
 # Write final file
 write.table(df5, "tidy_data.txt", row.name=FALSE)
